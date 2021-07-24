@@ -11,11 +11,29 @@ namespace TemplateWpfApp
     {
         #region " Properties "
 
-        public string Label
+        public string ShowMessage
         {
-            get
+            get { return this.showMessage; }
+            set
             {
-                return this.label;
+                if (value != this.showMessage)
+                {
+                    this.showMessage = value;
+                    NotifyPropertyChanged("ShowMessage");
+                }
+            }
+        }
+
+        public string EnterMessage
+        {
+            get { return this.enterMessage; }
+            set
+            {
+                if (value != this.enterMessage)
+                {
+                    this.enterMessage = value;
+                    NotifyPropertyChanged("EnterMessage");
+                }
             }
         }
 
@@ -23,7 +41,8 @@ namespace TemplateWpfApp
 
         #region " Fields "
 
-        private string label;
+        private string showMessage;
+        private string enterMessage;
 
         #endregion
 
@@ -41,7 +60,7 @@ namespace TemplateWpfApp
 
         public MainWindowModel()
         {
-            this.label = "Hello World!";
+            this.showMessage = "Hello World!";
 
             //You can change the world...
 

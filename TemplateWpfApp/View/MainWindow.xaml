@@ -16,12 +16,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="{Binding MainWindowModel.Label, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="0" FontSize="48" Content="{Binding MainWindowModel.ShowMessage, UpdateSourceTrigger=PropertyChanged}"/>
         <!-- overlay with hint text https://stackoverflow.com/questions/7425618/how-can-i-add-a-hint-text-to-wpf-textbox -->
         <!--<TextBlock Grid.Row="1" Text="You can change the world..." 
-                   Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" IsHitTestVisible="False"/> -->
+                   Foreground="LightSteelBlue" Visibility="{Binding ElementName=tbEnter, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" IsHitTestVisible="False"/> -->
         <!-- enter term here https://stackoverflow.com/questions/25699810/where-is-the-isempty-reference-member-in-this-xaml-code -->
-        <TextBox Grid.Row="1" Name="txtBox" Background="Transparent" Text="{Binding MainWindowModel.TextBox, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Row="2" Content="Let's Change It!"/>
+        <TextBox Grid.Row="1" Name="tbEnter" Background="Transparent" Text="{Binding MainWindowModel.EnterMessage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" KeyDown="tbEnter_OnKeyDownHandler"/>
+        <Button Grid.Row="2" Name="btnChange" Content="Let's Change It!" Command="{Binding ChangeItCommand}"/>
     </Grid>
 </Window>
